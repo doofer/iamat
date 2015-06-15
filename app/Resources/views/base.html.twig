@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        {% stylesheets filter='cssrewrite'
+        'bundles/dooferiamat/css/bootstrap/bootstrap.min.css'
+        'bundles/dooferiamat/css/bootstrap/bootstrap-theme.min.css'
+        %}
+        <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+        {% endstylesheets %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}
+        {% endblock %}
+        {% javascripts '@DooferIamatBundle/Resources/public/js/bootstrap/*'  %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    </body>
+</html>

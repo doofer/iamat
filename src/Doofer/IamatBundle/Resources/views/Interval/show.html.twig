@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Interval</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Startint</th>
+                <td>{{ entity.startInt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Endint</th>
+                <td>{{ entity.endInt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('interval') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('interval_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
